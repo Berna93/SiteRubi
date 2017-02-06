@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-   include("config.php");
+   include("config2.php");
    session_start();
 
 

@@ -17,12 +17,6 @@
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- DataTables CSS -->
-    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
-    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -68,13 +62,14 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
             </ul>
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -84,21 +79,30 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cliente.html">Cliente</a>
+                                    <a href="cadastroCliente.php">Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Curso</a>
+                                    <a href="cadastroCurso.php">Curso</a>
                                 </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="consultaCliente.php">Cliente</a>
+                                </li>
+
                             </ul>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cursosAbertos.html">Em Aberto</a>
+                                    <a href="cursosAbertos.php">Em Aberto</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Fechados</a>
+                                    <a href="cadastroCurso.php">Fechados</a>
                                 </li>
                             </ul>
                         </li>
@@ -108,12 +112,11 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-        </nav>
-
+         </nav>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Detalhes do curso</h1>
+                    <h1 class="page-header">Cadastro de Clientes</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -122,102 +125,83 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Astrologia Hermética I
+                            Dados básicos
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form">
                                         <div class="form-group">
-                                            <label>Nome do Curso</label>
+                                            <label>Nome</label>
                                             <input class="form-control">
-                                            <label>Professor/Palestrante</label>
+                                            <label>Endereço</label>
                                             <input class="form-control">
-                                            <label>Quantidade de Vagas</label>
+                                            <p class="help-block">Formato: Rua, Endereco -- Número</p>
+                                            <label>RG</label>
                                             <input class="form-control">
                                             <p class="help-block">Apenas números</p>
-                                            <label>Valor do Curso</label>
+                                            <label>CPF</label>
                                             <input class="form-control">
-                                            <label>Data do Curso</label>
+                                            <p class="help-block">Apenas números.</p>
+                                            <label>E-mail</label>
                                             <input class="form-control">
-                                            <label>Adicionar Participante</label>
-                                            <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                            </div>
-                            </button>
-                                <br/>
-                               <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Participante</th>
-                                        <th>Situação Financeira</th>
-                                        <th>Excluir Participante</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Julia Pestana</td>
-                                        <td>Pago</td>
-                                        <td class="center"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i>
-                            </button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Edivaldo Marchini Jr</td>
-                                        <td>Aguardando Pagamento</td>
-                                        <td class="center"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i>
-                            </button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Matheus Bernardelli</td>
-                                        <td>Pago</td>
-                                        <td class="center"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i>
-                            </button></td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                            <!-- /.table-responsive -->
-                            </div>
+                                            <p class="help-block">Example block-level help text here.</p>
+                                            <label>Telefone</label>
+                                            <input class="form-control">
+                                            <p class="help-block">Formato: (00) 00000-0000</p>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Atualizar</button>
+
+                                        <div class="form-group">
+                                            <label>Interesses</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Tarot
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Kabbalah
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Astrologia
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Umbanda
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Hermetismo
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Reiki
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-default">Cadastrar</button>
                                         <button type="reset" class="btn btn-default">Limpar</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
+
+                                    </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-
-
-
                             </div>
-
+                            <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </div>
@@ -235,22 +219,8 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-    });
-    </script>
 
 </body>
 

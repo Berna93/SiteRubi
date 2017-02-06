@@ -17,6 +17,12 @@
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+    <!-- DataTables CSS -->
+    <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -37,7 +43,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+       <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -62,13 +68,14 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
             </ul>
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -78,21 +85,30 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cliente.html">Cliente</a>
+                                    <a href="cadastroCliente.php">Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Curso</a>
+                                    <a href="cadastroCurso.php">Curso</a>
                                 </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="consultaCliente.php">Cliente</a>
+                                </li>
+
                             </ul>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cursosAbertos.html">Em Aberto</a>
+                                    <a href="cursosAbertos.php">Em Aberto</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Fechados</a>
+                                    <a href="cadastroCurso.php">Fechados</a>
                                 </li>
                             </ul>
                         </li>
@@ -102,13 +118,11 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-            <!-- /.navbar-static-side -->
-        </nav>
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Cadastro de Cursos</h1>
+                    <h1 class="page-header">Detalhes do curso</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -117,8 +131,9 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Dados básicos
+                            Astrologia Hermética I
                         </div>
+                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -135,25 +150,83 @@
                                             <input class="form-control">
                                             <label>Data do Curso</label>
                                             <input class="form-control">
+                                            <label>Adicionar Participante</label>
+                                            <div class="form-group input-group">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                                                </button>
+                                            </span>
+                                            </div>
 
+                                <br/>
+                               <div class="panel-body">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Participante</th>
+                                        <th>Situação Financeira</th>
+                                        <th>Excluir Participante</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Julia Pestana</td>
+                                        <td>Pago</td>
+                                        <td class="center"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i>
+                            </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Edivaldo Marchini Jr</td>
+                                        <td>Aguardando Pagamento</td>
+                                        <td class="center"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i>
+                            </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Matheus Bernardelli</td>
+                                        <td>Pago</td>
+                                        <td class="center"><button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i>
+                            </button></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Cadastrar</button>
+                                        <button type="submit" class="btn btn-default">Atualizar</button>
                                         <button type="reset" class="btn btn-default">Limpar</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-
-                                    </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
+
+
+
                             </div>
-                            <!-- /.row (nested) -->
+
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </div>
@@ -171,8 +244,22 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 
 </body>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
    include('session.php');
- 
+
 ?>
 <head>
 
@@ -51,7 +51,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Site Rubi</a>
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -68,7 +68,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -85,21 +85,30 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cliente.html">Cliente</a>
+                                    <a href="cadastroCliente.php">Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Curso</a>
+                                    <a href="cadastroCurso.php">Curso</a>
                                 </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="consultaCliente.php">Cliente</a>
+                                </li>
+
                             </ul>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cursosAbertos.html">Em Aberto</a>
+                                    <a href="cursosAbertos.php">Em Aberto</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Fechados</a>
+                                    <a href="cadastroCurso.php">Fechados</a>
                                 </li>
                             </ul>
                         </li>
@@ -110,7 +119,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">

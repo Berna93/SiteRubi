@@ -49,7 +49,7 @@
             </div>
             <!-- /.navbar-header -->
 
-           <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right">
 
                 <!-- /.dropdown -->
                 <li class="dropdown">
@@ -62,7 +62,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -71,7 +71,7 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-             <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
 
@@ -79,21 +79,30 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cliente.html">Cliente</a>
+                                    <a href="cadastroCliente.php">Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Curso</a>
+                                    <a href="cadastroCurso.php">Curso</a>
                                 </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="consultaCliente.php">Cliente</a>
+                                </li>
+
                             </ul>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cursosAbertos.html">Em Aberto</a>
+                                    <a href="cursosAbertos.php">Em Aberto</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Fechados</a>
+                                    <a href="cadastroCurso.php">Fechados</a>
                                 </li>
                             </ul>
                         </li>
@@ -103,12 +112,11 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-        </nav>
-
+          </nav>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Cadastro de Clientes</h1>
+                    <h1 class="page-header">Cadastro de Cursos</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -124,44 +132,23 @@
                                 <div class="col-lg-6">
                                     <form role="form">
                                         <div class="form-group">
-                                            <label>Nome</label>
+                                            <label>Nome do Curso</label>
                                             <input class="form-control">
-                                            <label>Endereço</label>
+                                            <label>Professor/Palestrante</label>
                                             <input class="form-control">
-                                            <p class="help-block">Formato: Rua, Endereco -- Número</p>
-                                            <label>RG</label>
+                                            <label>Quantidade de Vagas</label>
                                             <input class="form-control">
                                             <p class="help-block">Apenas números</p>
-                                            <label>CPF</label>
+                                            <label>Valor do Curso</label>
                                             <input class="form-control">
-                                            <p class="help-block">Apenas números.</p>
-                                            <label>E-mail</label>
+                                            <label>Data do Curso</label>
                                             <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
-                                            <label>Telefone</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Formato: (00) 00000-0000</p>
-                                        </div>
+                                            <div class="form-group">
+                                            <label>Contrato</label>
+                                            <textarea class="form-control" rows="30"></textarea>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <label>Interesses</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Tarot
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Kabbalah
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Astrologia
-                                                </label>
-                                            </div>
                                         </div>
-
                                         <button type="submit" class="btn btn-default">Cadastrar</button>
                                         <button type="reset" class="btn btn-default">Limpar</button>
                                     </form>

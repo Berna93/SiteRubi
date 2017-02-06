@@ -36,13 +36,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-        location.href = "www.yoursite.com";
-        };
-    </script>
-
-
 </head>
 
 <body>
@@ -75,7 +68,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -92,21 +85,30 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cliente.html">Cliente</a>
+                                    <a href="cadastroCliente.php">Cliente</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Curso</a>
+                                    <a href="cadastroCurso.php">Curso</a>
                                 </li>
+                            </ul>
+                        </li>
+                         <li>
+                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="cadastroCliente.html">Cliente</a>
+                                </li>
+
                             </ul>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cursosAbertos.html">Em Aberto</a>
+                                    <a href="cursosAbertos.php">Em Aberto</a>
                                 </li>
                                 <li>
-                                    <a href="curso.html">Fechados</a>
+                                    <a href="cadastroCurso.php">Fechados</a>
                                 </li>
                             </ul>
                         </li>
@@ -117,11 +119,10 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Cursos Em Aberto</h1>
+                    <h1 class="page-header">Consulta de Clientes</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -130,7 +131,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Cursos Em Aberto
+                            Consulta de Clientes
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
