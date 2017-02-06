@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+
+<?php
+   include("config.php");
+   session_start();
+
+
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form
+
+      $myusername = mysqli_real_escape_string($db,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+
+      $sql = "SELECT id FROM admin WHERE username = '$myusername' and password = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $active = $row['active'];
+
+      $count = mysqli_num_rows($result);
+
+      // If result matched $myusername and $mypassword, table row must be 1 row
+
+      if($count == 1) {
+
+         $_SESSION['login_user'] = $myusername;
+
+         header("location: index2.php");
+      }else {
+         $error = "Your Login Name or Password is invalid";
+      }
+   }
+?>
 <html lang="en">
 
 <head>
@@ -42,10 +73,10 @@
                         <h3 class="panel-title">Por favor, entre com seu login e senha.</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="E-mail" name="username" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Senha" name="password" type="password" value="">
@@ -56,9 +87,11 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index2.html" class="btn btn-lg btn-success btn-block">Entrar</a>
+                                <!--<a href="index2.html" class="btn btn-lg btn-success btn-block">Entrar</a>-->
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar"/>
                             </fieldset>
                         </form>
+                        <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
                     </div>
                 </div>
             </div>
