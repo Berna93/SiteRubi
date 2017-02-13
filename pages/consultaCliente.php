@@ -3,10 +3,12 @@ include('session.php');
 ?>
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
+
 <?php
     require_once('clientes/functions.php');
     index();
 ?>
+
 
 <?php include(HEADER_TEMPLATE); ?>
 <?php $db = open_database(); ?>
@@ -48,6 +50,7 @@ include('session.php');
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <?php if ($customers) : ?>
 <?php foreach ($customers as $customer) : ?>
     <tr>
@@ -65,6 +68,110 @@ include('session.php');
         <td colspan="6">Nenhum registro encontrado.</td>
     </tr>
 <?php endif; ?>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Antonio Carlos</td>
+                                        <td>(19) 98474-3813</td>
+                                        <td class="center">antonio.carlos@gmail.com</td>
+                                        <td class="center">
+                                            <input type="button" onclick="window.open('cadastroCliente.php')" value="Detalhes" class="btn btn-success" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Mariana Neves</td>
+                                        <td>(18) 9823-5262</td>
+                                        <td class="center">mariananeves19@gmail.com</td>
+                                        <td class="center"><input type="button" onclick="window.open('cadastroCliente.html')" value="Detalhes" class="btn btn-success" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Matheus Bernardelli</td>
+                                        <td>(19) 98474-3813</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center">
+                                            <input type="button" onclick="window.open('cadastroCliente.php')" value="Detalhes" class="btn btn-success" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Edivaldo Marchini Jr</td>
+                                        <td>(18) 9823-5262</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center"><input type="button" onclick="window.open('cadastroCliente.html')" value="Detalhes" class="btn btn-success" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Vinicius Pandolfi</td>
+                                        <td>(19) 98474-3813</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center">
+                                            <input type="button" onclick="window.open('cadastroCliente.php')" value="Detalhes" class="btn btn-success" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Luiz Fernando Marchini</td>
+                                        <td>(18) 9823-5262</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center"><input type="button" onclick="window.open('cadastroCliente.html')" value="Detalhes" class="btn btn-success" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Giovana Maniero</td>
+                                        <td>(19) 98474-3813</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center">
+                                            <input type="button" onclick="window.open('cadastroCliente.php')" value="Detalhes" class="btn btn-success" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Lais Sartori</td>
+                                        <td>(18) 9823-5262</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center"><input type="button" onclick="window.open('cadastroCliente.html')" value="Detalhes" class="btn btn-success" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Nataly Baldessin</td>
+                                        <td>(19) 98474-3813</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center">
+                                            <input type="button" onclick="window.open('cadastroCliente.php')" value="Detalhes" class="btn btn-success" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Nair Children Party Dancer</td>
+                                        <td>(18) 9823-5262</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center"><input type="button" onclick="window.open('cadastroCliente.html')" value="Detalhes" class="btn btn-success" /></td>
+                                    </tr>
+                                     <tr>
+                                        <td>11</td>
+                                        <td>Luis Gustavo Cadorin</td>
+                                        <td>(19) 98474-3813</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center">
+                                            <input type="button" onclick="window.open('cadastroCliente.php')" value="Detalhes" class="btn btn-success" />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Maria Thereza</td>
+                                        <td>(18) 9823-5262</td>
+                                        <td class="center">email@email.com</td>
+                                        <td class="center"><input type="button" onclick="window.open('cadastroCliente.html')" value="Detalhes" class="btn btn-success" /></td>
+                                    </tr>
+
 
                                 </tbody>
                             </table>
