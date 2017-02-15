@@ -4,6 +4,7 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
+
 <?php
 require_once('cursos/functions.php');
 index();
@@ -13,6 +14,14 @@ index();
 <?php $db = open_database(); ?>
 
 <?php if ($db) : ?>
+
+
+
+<?php include(HEADER_TEMPLATE); ?>
+<?php $db = open_database(); ?>
+
+<?php if ($db) : ?>
+
 
 
     <div id="page-wrapper">
@@ -42,6 +51,7 @@ index();
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php if ($cursos) : ?>
                                     <?php foreach ($cursos as $curso) : ?>
                                         <tr>
@@ -62,7 +72,44 @@ index();
 
                             </tbody>
                         </table>
-                            
+
+
+                                <tr class="danger">
+                                    <td>Reiki - Nível 1</td>
+                                    <td>Julia Pestana</td>
+                                    <td>20</td>
+                                    <td class="center">17</td>
+                                    <td class="center">
+                                        <input type="button" onclick="window.open('cursosDetalhes.php')" value="Detalhes" class="btn btn-success" />
+
+                                    </td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>Astrologia Hermética</td>
+                                    <td>Edivaldo Marchini Jr</td>
+                                    <td>8</td>
+                                    <td class="center">8</td>
+                                    <td class="center"><input type="button" onclick="window.open('cursosDetalhes.php')" value="Detalhes" class="btn btn-success" /></td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Rituais com ervas na Umbanda</td>
+                                    <td>Matheus Bernardelli</td>
+                                    <td>15</td>
+                                    <td class="center">13</td>
+                                    <td class="center"><input type="button" onclick="window.open('cursosDetalhes.php')" value="Detalhes" class="btn btn-success" /></td>
+                                </tr>
+                                <tr class="info">
+                                    <td>Consciência Corporal dos Sete Chackras Quânticos</td>
+                                    <td>Vinicius Pandolfi</td>
+                                    <td>12</td>
+                                    <td class="center">11</td>
+                                    <td class="center"><input type="button" onclick="window.open('cursosDetalhes.php')" value="Detalhes" class="btn btn-success" /></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+
 
                     </div>
                     <!-- /.panel-body -->

@@ -4,7 +4,8 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<?php 
+
+<?php
     require_once('cursos/functions.php');
     add();
 ?>
@@ -31,6 +32,7 @@ include('session.php');
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
+
                                 <form role="form" action="cadastroCurso.php" method="post">
                                     <div class="form-group">
                                         <label>Nome do Curso</label>
@@ -47,6 +49,24 @@ include('session.php');
                                         <div class="form-group">
                                             <label>Contrato</label>
                                             <textarea class="form-control" rows="10" name="curso['contrato']"></textarea>
+
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label>Nome do Curso</label>
+                                        <input class="form-control">
+                                        <label>Professor/Palestrante</label>
+                                        <input class="form-control">
+                                        <label>Quantidade de Vagas</label>
+                                        <input class="form-control">
+                                        <p class="help-block">Apenas números</p>
+                                        <label>Valor do Curso</label>
+                                        <input class="form-control">
+                                        <label>Data do Curso</label>
+                                        <input class="form-control">
+                                        <div class="form-group">
+                                            <label>Contrato</label>
+                                            <textarea class="form-control" rows="10"></textarea>
+
                                         </div>
 
                                     </div>
