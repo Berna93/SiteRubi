@@ -1,0 +1,1 @@
+INSERT INTO `cursos`(`nome`, `professor`, `qtdeVagas`, `valor`, `data`, `contrato`, `dataCriacao`, `modified`) VALUES ('Astrologia','Edivaldo Luiz Marchini Jr',20,'180,00','19/06/2017','testesteste', NOW(), NOW())

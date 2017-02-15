@@ -1,3 +1,21 @@
+/**
+ * Passa os dados do cliente para o Modal, e atualiza o link para exclusão
+ */
+$('#delete-modal').on('show.bs.modal', function (event) {
+  
+  var button = $(event.relatedTarget);
+  var id = button.data('customer');
+  
+  var modal = $(this);
+  modal.find('.modal-title').text('Excluir Cliente #' + id);
+  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+})
+
+/*!
+ * Start Bootstrap - SB Admin 2 v3.3.7+1 (http://startbootstrap.com/template-overviews/sb-admin-2)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
 $(function() {
     $('#side-menu').metisMenu();
 });
@@ -41,16 +59,4 @@ $(function() {
     }
 });
 
-/**
- * Passa os dados do cliente para o Modal, e atualiza o link para exclusão
- */
-$('#delete-modal').on('show.bs.modal', function (event) {
-  
-  var button = $(event.relatedTarget);
-  var id = button.data('customer');
-  
-  var modal = $(this);
-  modal.find('.modal-title').text('Excluir Cliente #' + id);
-  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
-})
 

@@ -4,7 +4,7 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php 
 	require_once('clientes/functions.php');
-	add();
+	edit();
 ?>
 <?php require_once DBAPI; ?>
 
@@ -30,26 +30,26 @@ include('session.php');
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="cadastroCliente.php" method="post">
+                                    <form role="form" action="edicaoCliente.php?id=<?php echo $customer['id']; ?>" method="post">
                                         <div class="form-group">
                                             <label>Nome</label>
-                                            <input type="text" class="form-control" name="customer['nome']">
+                                            <input type="text" class="form-control" name="customer['nome']" value="<?php echo $customer['nome']; ?>">
                                             
                                             <label>Endereço</label>
-                                            <input type="text" class="form-control" name="customer['endereco']">
+                                            <input type="text" class="form-control" name="customer['endereco']" value="<?php echo $customer['endereco']; ?>">
                                             <p class="help-block">Formato: Rua, Endereco -- Número</p>
                                             
                                             <label>RG</label>
-                                            <input type="text" class="form-control" name="customer['rg']">
+                                            <input type="text" class="form-control" name="customer['rg']" value="<?php echo $customer['rg']; ?>">
                                             <p class="help-block">Apenas números</p>
                                             <label>CPF</label>
-                                            <input type="text" class="form-control" name="customer['cpf']">
+                                            <input type="text" class="form-control" name="customer['cpf']" value="<?php echo $customer['cpf']; ?>">
                                             <p class="help-block">Apenas números.</p>
                                             <label>E-mail</label>
-                                            <input type="text" class="form-control" name="customer['email']">
+                                            <input type="text" class="form-control" name="customer['email']" value="<?php echo $customer['email']; ?>">
                                             
                                             <label>Telefone</label>
-                                            <input type="text" class="form-control" name="customer['telefone']">
+                                            <input type="text" class="form-control" name="customer['telefone']" value="<?php echo $customer['telefone']; ?>">
                                             <p class="help-block">Formato: (00) 00000-0000</p>
                                         </div>
 
@@ -57,40 +57,45 @@ include('session.php');
                                             <label>Interesses</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="customer['tarot']">Tarot
+                                                    <input type="checkbox" <?php if ($customer['tarot'] == 1) echo "checked='checked'"; ?> value="1" name="customer['tarot']" >Tarot
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                   <input type="checkbox" value="1" name="customer['cabala']">Kabbalah
+                                                   <input type="checkbox" <?php if ($customer['cabala'] == 1) echo "checked='checked'"; ?> value="1" name="customer['cabala']">Kabbalah
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="customer['astrologia']">Astrologia
+                                                    <input type="checkbox" <?php if ($customer['astrologia'] == 1) echo "checked='checked'"; ?> value="1" name="customer['astrologia']">Astrologia
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="customer['umbanda']">Umbanda
+                                                    <input type="checkbox" <?php if ($customer['umbanda'] == 1) echo "checked='checked'"; ?> value="1" name="customer['umbanda']">Umbanda
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="customer['hermetismo']">Hermetismo
+                                                    <input type="checkbox" <?php if ($customer['hermetismo'] == 1) echo "checked='checked'"; ?> value="1" name="customer['hermetismo']">Hermetismo
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="1" name="customer['reiki']">Reiki
+                                                    <input type="checkbox" <?php if ($customer['reiki'] == 1) echo "checked='checked'"; ?> value="1" name="customer['reiki']">Reiki
                                                 </label>
                                             </div>
                                         </div>
 
 
 
-                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
                                         <button type="reset" class="btn btn-warning">Limpar</button>
+                                        
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $customer['id']; ?>">
+                                            <i class="fa fa-trash"></i> Excluir
+                                        </a>
+                                         
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -121,5 +126,7 @@ include('session.php');
     </div>
 
 <?php endif; ?>
+<?php include('clientes/modal.php'); ?>
 
 <?php include(FOOTER_TEMPLATE); ?>
+

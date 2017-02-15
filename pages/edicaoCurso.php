@@ -6,7 +6,7 @@ include('session.php');
 
 <?php 
     require_once('cursos/functions.php');
-    add();
+    edit();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -31,27 +31,35 @@ include('session.php');
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form role="form" action="cadastroCurso.php" method="post">
+                                 <form role="form" action="edicaoCurso.php?id=<?php echo $curso['id']; ?>" method="post">
                                     <div class="form-group">
                                         <label>Nome do Curso</label>
-                                        <input type="text" class="form-control" name="curso['nome']">
+                                        <input type="text" class="form-control" name="curso['nome']" value="<?php echo $curso['nome']; ?>">
+                                        
                                         <label>Professor/Palestrante</label>
-                                        <input type="text" class="form-control" name="curso['professor']">
+                                        
+                                        <input type="text" class="form-control" name="curso['professor']" value="<?php echo $curso['professor']; ?>">
+                                        
                                         <label>Quantidade de Vagas</label>
-                                        <input type="text" class="form-control" name="curso['qtdeVagas']">
+                                        <input type="text" class="form-control" name="curso['qtdeVagas']" value="<?php echo $curso['qtdeVagas']; ?>">
                                         <p class="help-block">Apenas números</p>
+                                        
                                         <label>Valor do Curso</label>
-                                        <input type="text" class="form-control" name="curso['valor']">
+                                        <input type="text" class="form-control" name="curso['valor']" value="<?php echo $curso['valor']; ?>">
+                                        
                                         <label>Data do Curso</label>
-                                        <input type="text" class="form-control" name="curso['data']">
+                                        <input type="text" class="form-control" name="curso['data']" value="<?php echo $curso['data']; ?>">
                                         <div class="form-group">
                                             <label>Contrato</label>
-                                            <textarea class="form-control" rows="10" name="curso['contrato']"></textarea>
+                                            <textarea class="form-control" rows="10" name="curso['contrato']" value="<?php echo $curso['contrato']; ?>"></textarea>
                                         </div>
 
                                     </div>
                                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                                     <button type="reset" class="btn btn-warning">Limpar</button>
+                                    <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-curso" data-customer="<?php echo $curso['id']; ?>">
+                                            <i class="fa fa-trash"></i> Excluir
+                                        </a>
                                 </form>
                             </div>
                             <!-- /.col-lg-6 (nested) -->
@@ -73,6 +81,7 @@ include('session.php');
     </div>
 
 <?php endif; ?>
+<?php include('cursos/modal.php'); ?>
 
 <?php include(FOOTER_TEMPLATE); ?>
 

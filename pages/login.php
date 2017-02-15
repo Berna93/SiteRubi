@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-   include("config2.php");
+   include("config.php");
    session_start();
 
 
@@ -24,7 +24,7 @@
 
          $_SESSION['login_user'] = $myusername;
 
-         header("location: index2.php");
+         header("location: index.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
@@ -91,7 +91,7 @@
                                 <input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar"/>
                             </fieldset>
                         </form>
-                        <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+                        <!--<div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>-->
                     </div>
                 </div>
             </div>
