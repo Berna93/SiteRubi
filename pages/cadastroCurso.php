@@ -1,191 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include('session.php');
+?>
+<?php require_once 'config.php'; ?>
+<?php require_once DBAPI; ?>
 
-<head>
+<?php 
+    require_once('cursos/functions.php');
+    add();
+?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<?php include(HEADER_TEMPLATE); ?>
+<?php $db = open_database(); ?>
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+<?php if ($db) : ?>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Cadastro de Cursos</h1>
             </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cadastroCliente.php">Cliente</a>
-                                </li>
-                                <li>
-                                    <a href="cadastroCurso.php">Curso</a>
-                                </li>
-                            </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="consultaCliente.php">Cliente</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cursosAbertos.php">Em Aberto</a>
-                                </li>
-                                <li>
-                                    <a href="cadastroCurso.php">Fechados</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-          </nav>
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Cadastro de Cursos</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Dados básicos
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form">
-                                        <div class="form-group">
-                                            <label>Nome do Curso</label>
-                                            <input class="form-control">
-                                            <label>Professor/Palestrante</label>
-                                            <input class="form-control">
-                                            <label>Quantidade de Vagas</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Apenas números</p>
-                                            <label>Valor do Curso</label>
-                                            <input class="form-control">
-                                            <label>Data do Curso</label>
-                                            <input class="form-control">
-                                            <div class="form-group">
-                                            <label>Contrato</label>
-                                            <textarea class="form-control" rows="30"></textarea>
-                                            </div>
-
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Cadastrar</button>
-                                        <button type="reset" class="btn btn-default">Limpar</button>
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-
-                                    </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+            <!-- /.col-lg-12 -->
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Dados básicos
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form role="form" action="cadastroCurso.php" method="post">
+                                    <div class="form-group">
+                                        <label>Nome do Curso</label>
+                                        <input type="text" class="form-control" name="curso['nome']">
+                                        <label>Professor/Palestrante</label>
+                                        <input type="text" class="form-control" name="curso['professor']">
+                                        <label>Quantidade de Vagas</label>
+                                        <input type="text" class="form-control" name="curso['qtdeVagas']">
+                                        <p class="help-block">Apenas números</p>
+                                        <label>Valor do Curso</label>
+                                        <input type="text" class="form-control" name="curso['valor']">
+                                        <label>Data do Curso</label>
+                                        <input type="text" class="form-control" name="curso['data']">
+                                        <div class="form-group">
+                                            <label>Contrato</label>
+                                            <textarea class="form-control" rows="10" name="curso['contrato']"></textarea>
+                                        </div>
 
+                                        
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    <button type="reset" class="btn btn-warning">Limpar</button>
+                                </form>
+                            </div>
+                            <!-- /.col-lg-6 (nested) -->
+
+                        </form>
+                    </div>
+                    <!-- /.col-lg-6 (nested) -->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+        </div>
     </div>
-    <!-- /#wrapper -->
+</div>
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<?php else : ?>
+    <div class="alert alert-danger" role="alert">
+        <p><strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!</p>
+    </div>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+<?php endif; ?>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+<?php include(FOOTER_TEMPLATE); ?>
 
-</body>
-
-</html>
