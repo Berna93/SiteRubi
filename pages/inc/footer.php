@@ -28,8 +28,13 @@
 <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
 <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 
+
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -64,6 +69,8 @@
 		  modal.find('.modal-title').text('Excluir Curso #' + id);
 		  modal.find('#confirm').attr('href', 'deleteCurso.php?id=' + id);
 		})
+
+
 	
 	
 </script>

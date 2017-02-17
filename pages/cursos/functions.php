@@ -5,6 +5,7 @@ require_once('./config.php');
 require_once(DBAPI);
 $cursos = null;
 $curso = null;
+$cursosParticipantes = null;
 /**
  *  Listagem de cursos
  */
@@ -12,6 +13,12 @@ function index() {
 	global $cursos;
 	$cursos = find_all('cursos');
 }
+
+function searchCourseStudents($idCurso = null) {
+  global $cursosParticipantes;
+  $cursosParticipantes = find_all_byelement('cursos_participantes', 'idCurso', $idCurso);
+}
+
 
 /**
  *  Cadastro de cursos
@@ -27,8 +34,7 @@ function add() {
     $curso['modified'] = $curso['dataCriacao'] = $today->format("Y-m-d H:i:s");
     
     save('cursos', $curso);
-    //header('location: index.php');
-    print_r($curso);
+    header('location: cadastroCurso.php');
   }
 }
 
@@ -43,13 +49,13 @@ function edit() {
       $curso = $_POST['curso'];
       $curso['modified'] = $now->format("Y-m-d H:i:s");
       update('cursos', $id, $curso);
-      header('location: index.php');
+      header('location: edicaoCurso.php?id=' . $id);
     } else {
       global $curso;
       $curso = find('cursos', $id);
     } 
   } else {
-    header('location: index.php');
+     header('location: edicaoCurso.php?id=' . $id);
   }
 }
 
@@ -59,5 +65,5 @@ function edit() {
 function delete($id = null) {
   global $curso;
   $curso = remove('cursos', $id);
-  header('location: index.php');
+  header('location: edicaoCurso.php?id=' . $id);
 }

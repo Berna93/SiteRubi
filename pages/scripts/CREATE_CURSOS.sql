@@ -3,6 +3,7 @@ CREATE TABLE cursos (
   nome varchar(255) NOT NULL,
   professor varchar(14) NOT NULL,
   qtdeVagas int NOT NULL,
+  qtdePreenchidas int NOT NULL,
   valor varchar(15) NULL,
   data date NOT NULL,
   contrato blob NOT NULL,
