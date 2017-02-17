@@ -6,7 +6,10 @@ require_once(DBAPI);
 $cursos = null;
 $curso = null;
 $cursosParticipantes = null;
+
 $cliente = null;
+
+
 /**
  *  Listagem de cursos
  */
@@ -28,12 +31,12 @@ function add() {
   if (!empty($_POST['curso'])) {
 
     if($_POST['curso'])
-    
-    $today = 
+
+    $today =
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
     $curso = $_POST['curso'];
     $curso['modified'] = $curso['dataCriacao'] = $today->format("Y-m-d H:i:s");
-    
+
     save('cursos', $curso);
     header('location: cadastroCurso.php');
   }
@@ -54,13 +57,14 @@ function edit() {
     } else {
       global $curso;
       $curso = find('cursos', $id);
-    } 
+    }
   } else {
      header('location: edicaoCurso.php?id=' . $id);
   }
 }
 
 /**
+<<<<<<< HEAD
  *  Atualizacao/Edicao de curso
  */
 function editParticipant() {
@@ -80,7 +84,7 @@ function editParticipant() {
               $data = $_POST['participante'];
               $columns = null;
             $values = null;
- 
+
             foreach ($data as $key => $value) {
               $columns .= trim($key, "'") . ",";
               $values .= "'$value',";
@@ -88,10 +92,10 @@ function editParticipant() {
 
             $columns = rtrim($columns, ',');
             $values = rtrim($values, ',');
-            
-            $today = 
+
+            $today =
               date_create('now', new DateTimeZone('America/Sao_Paulo'));
-            
+
             $participante = find_all_byelement('clientes', 'nome', $values);
             $participante['modified'] = $participante['dataCriacao'] = $today->format("Y-m-d H:i:s");
 
@@ -107,10 +111,10 @@ function editParticipant() {
            header('location: cursoParticipantes.php?id=' . $id);
 
 
-      
+
       }
 
-         
+
 
 
 
@@ -118,7 +122,7 @@ function editParticipant() {
     } else {
       global $curso;
       $curso = find('cursos', $id);
-    } 
+    }
   } else {
      header('location: edicaoCurso.php?id=' . $id);
   }

@@ -4,9 +4,10 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<?php 
+<?php
 require_once('cursos/functions.php');
 searchCourseStudents($curso['id']);
+
 editParticipant();
 
 ?>
@@ -33,7 +34,9 @@ editParticipant();
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-6">
+
 								<form role="form" action="cursoParticipantes.php?id=<?php echo $curso['id']; ?>" method="post">
+
 									<div class="form-group">
 										<label>Nome do Curso</label>
 										<input type="text" class="form-control" name="curso['nome']" value="<?php echo $curso['nome']; ?>">
@@ -53,26 +56,28 @@ editParticipant();
 											<label>Adicionar Participante</label>
 											<div class="form-group input-group">
 
+
 												<input type="text" class="form-control" id="skills" name="participante['nomeCliente']"/>
+
 												<span class="input-group-btn">
-												
-									
+
+
 														<button class="btn btn-default" type="submit" name="btnAdiciona"><i class="fa fa-check"></i>
 														</button>
-													
+
 												</span>
 											</div>
 
 									</div>
 
 
-								
+
 							</div>
 							<!-- /.col-lg-6 (nested) -->
 						<div class="row">
 							<div class="col-lg-12" align="center">
 									<div class="panel panel-green">
-										
+
 
 										<div class="panel-heading">
 											Participantes
@@ -85,7 +90,7 @@ editParticipant();
 
 										<!-- /.panel-heading -->
 										<div class="panel-body">
-											
+
 											<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 												<thead>
 													<tr>
