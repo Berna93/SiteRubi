@@ -28,8 +28,13 @@
 <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
 <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 
+
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -38,6 +43,48 @@
             responsive: true
         });
     });
+
+    /**
+ 		* Passa os dados do cliente para o Modal, e atualiza o link para exclusão
+ 	*/
+		$('#delete-modal').on('show.bs.modal', function (event) {
+		  
+		  var button = $(event.relatedTarget);
+		  var id = button.data('customer');
+		  
+		  var modal = $(this);
+		  modal.find('.modal-title').text('Excluir Cliente #' + id);
+		  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+		})
+
+		/**
+ 		* Passa os dados do cliente para o Modal, e atualiza o link para exclusão
+ 	*/
+		$('#delete-modal-curso').on('show.bs.modal', function (event) {
+		  
+		  var button = $(event.relatedTarget);
+		  var id = button.data('customer');
+		  
+		  var modal = $(this);
+		  modal.find('.modal-title').text('Excluir Curso #' + id);
+		  modal.find('#confirm').attr('href', 'deleteCurso.php?id=' + id);
+		})
+
+		$('#delete-modal-participante').on('show.bs.modal', function (event) {
+		  
+		  var button = $(event.relatedTarget);
+		  var id = button.data('customer');
+		  var idCurso = button.data('curso');
+		  
+		  var modal = $(this);
+		  modal.find('.modal-title').text('Excluir Participante #' + id);
+		  modal.find('#confirm').attr('href', 'deleteParticipante.php?id=' + id + "&idCurso=" + idCurso);
+		})
+
+
+
+	
+	
 </script>
 
 </body>

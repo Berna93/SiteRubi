@@ -34,7 +34,20 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
         <![endif]-->
+        
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#skills" ).autocomplete({
+      source: 'search.php'
+    });
+  });
+  </script>
 
     </head>
 
@@ -51,7 +64,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                    <a class="navbar-brand" href="index.php">Hod Rubi 2.0</a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -63,12 +76,13 @@
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> 
+                            <?php echo $_SESSION['username'];?></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> <?php echo $_SESSION['usertype'];?></a></a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="<?php echo BASEURL; ?>logout.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -85,10 +99,10 @@
                                 <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="cadastroCliente.php">Cliente</a>
+                                        <a href="<?php echo BASEURL; ?>cadastroCliente.php">Cliente</a>
                                     </li>
                                     <li>
-                                        <a href="cadastroCurso.php">Curso</a>
+                                        <a href="<?php echo BASEURL; ?>cadastroCurso.php">Curso</a>
                                     </li>
                                 </ul>
                             </li>
@@ -96,7 +110,7 @@
                                 <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="consultaCliente.php">Cliente</a>
+                                        <a href="<?php echo BASEURL; ?>consultaCliente.php">Cliente</a>
                                     </li>
 
                                 </ul>
@@ -105,10 +119,10 @@
                                 <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="cursosAbertos.php">Em Aberto</a>
+                                        <a href="<?php echo BASEURL; ?>cursosAbertos.php">Em Aberto</a>
                                     </li>
                                     <li>
-                                        <a href="cadastroCurso.php">Fechados</a>
+                                        <a href="<?php echo BASEURL; ?>cadastroCurso.php">Fechados</a>
                                     </li>
                                 </ul>
                             </li>
