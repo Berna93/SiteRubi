@@ -37,7 +37,7 @@
 
 
         <![endif]-->
-        
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -76,10 +76,14 @@
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> 
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>
                             <?php echo $_SESSION['username'];?></a>
                             </li>
+
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> <?php echo $_SESSION['usertype'];?></a></a>
+
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
+
                             </li>
                             <li class="divider"></li>
                             <li><a href="<?php echo BASEURL; ?>logout.php"><i class="fa fa-sign-out fa-fw"></i> Sair</a>

@@ -20,15 +20,15 @@ function add() {
   if (!empty($_POST['customer'])) {
 
     if($_POST['customer'])
-    
-    $today = 
+
+    $today =
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
     $customer = $_POST['customer'];
     $customer['modified'] = $customer['dataCriacao'] = $today->format("Y-m-d H:i:s");
-    
+
     save('clientes', $customer);
     header('location: index.php');
-  
+
   }
 }
 
@@ -47,7 +47,7 @@ function edit() {
     } else {
       global $customer;
       $customer = find('clientes', $id);
-    } 
+    }
   } else {
     header('location: index.php');
   }
@@ -60,4 +60,5 @@ function delete($id = null) {
   global $customer;
   $customer = remove('clientes', $id);
   header('location: cadastroCliente.php');
+
 }

@@ -4,7 +4,7 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<?php 
+<?php
 require_once('cursos/functions.php');
 searchCourseStudents($curso['id']);
 edit();
@@ -60,7 +60,7 @@ edit();
 									</div>
 
 
-								
+
 							</div>
 							<!-- /.col-lg-6 (nested) -->
 
@@ -69,11 +69,15 @@ edit();
 									<!-- /.panel-body -->
 									<button type="submit" class="btn btn-primary">Atualizar</button>
 									<button type="reset" class="btn btn-warning">Limpar</button>
+
 									<a href="#" class="btn btn-danger <?php if ($_SESSION['usertype']!='admin') echo "disabled"; ?>" data-toggle="modal" data-target="#delete-modal-curso" data-customer="<?php echo $curso['id']; ?>">
+
+									<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-curso" data-customer="<?php echo $curso['id']; ?>">
+
 										<i class="fa fa-trash"></i> Excluir
 									</a>
 									 <a href="cursoParticipantes.php?id=<?php echo $curso['id']; ?>" class="btn btn-success"><i class="fa fa-eye"></i> Participantes</a>
-									
+
 					</form>
 
 				</div>

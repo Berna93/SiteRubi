@@ -2,7 +2,7 @@
 include('session.php');
 ?>
 <?php require_once 'config.php'; ?>
-<?php 
+<?php
 	require_once('clientes/functions.php');
 	edit();
 ?>
@@ -29,10 +29,11 @@ include('session.php');
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <?php echo $_SESSION['message']; ?>
                         </div>
-                        
+
                     <?php endif; ?>
 
         </div>
+
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -47,11 +48,11 @@ include('session.php');
                                         <div class="form-group">
                                             <label>Nome</label>
                                             <input type="text" class="form-control" name="customer['nome']" value="<?php echo $customer['nome']; ?>">
-                                            
+
                                             <label>Endereço</label>
                                             <input type="text" class="form-control" name="customer['endereco']" value="<?php echo $customer['endereco']; ?>">
                                             <p class="help-block">Formato: Rua, Endereco -- Número</p>
-                                            
+
                                             <label>RG</label>
                                             <input type="text" class="form-control" name="customer['rg']" value="<?php echo $customer['rg']; ?>">
                                             <p class="help-block">Apenas números</p>
@@ -60,7 +61,7 @@ include('session.php');
                                             <p class="help-block">Apenas números.</p>
                                             <label>E-mail</label>
                                             <input type="text" class="form-control" name="customer['email']" value="<?php echo $customer['email']; ?>">
-                                            
+
                                             <label>Telefone</label>
                                             <input type="text" class="form-control" name="customer['telefone']" value="<?php echo $customer['telefone']; ?>">
                                             <p class="help-block">Formato: (00) 00000-0000</p>
@@ -104,11 +105,15 @@ include('session.php');
 
                                         <button type="submit" class="btn btn-primary">Atualizar</button>
                                         <button type="reset" class="btn btn-warning">Limpar</button>
-                                        
+
+
                                         <a href="#" class="btn btn-danger <?php if ($_SESSION['usertype']!='admin') echo "disabled"; ?>" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $customer['id']; ?>">
+
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $customer['id']; ?>">
+
                                             <i class="fa fa-trash"></i> Excluir
                                         </a>
-                                         
+
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
