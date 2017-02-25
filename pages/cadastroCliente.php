@@ -1,118 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include('session.php');
+?>
+<?php require_once 'config.php'; ?>
+<?php 
+	require_once('clientes/functions.php');
+	add();
+?>
+<?php require_once DBAPI; ?>
 
-<head>
+<?php include(HEADER_TEMPLATE); ?>
+<?php $db = open_database(); ?>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<?php if ($db) : ?>
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cadastroCliente.php">Cliente</a>
-                                </li>
-                                <li>
-                                    <a href="cadastroCurso.php">Curso</a>
-                                </li>
-                            </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-search fa-fw"></i> Consultas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="consultaCliente.php">Cliente</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-dashboard fa-fw"></i> Cursos<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cursosAbertos.php">Em Aberto</a>
-                                </li>
-                                <li>
-                                    <a href="cadastroCurso.php">Fechados</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-         </nav>
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -120,73 +20,99 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+              <div>
+        <br><br><br>
+
+            <?php if (!empty($_SESSION['message'])) : ?>
+                        <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <?php echo $_SESSION['message']; ?>
+                        </div>
+                        
+                    <?php endif; ?>
+
+        </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">
                             Dados básicos
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" action="cadastroCliente.php" data-toggle="validator" method="post">
                                         <div class="form-group">
                                             <label>Nome</label>
-                                            <input class="form-control">
+                                            <input type="text" class="form-control" name="customer['nome']" data-error="Por favor, informe um nome válido." required>
+                                             <div class="help-block with-errors"></div>
+                                         </div>
+                                         <div class="form-group">
                                             <label>Endereço</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Formato: Rua, Endereco -- Número</p>
+                                            <input type="text" class="form-control" name="customer['endereco']" data-error="Por favor, informe um endereço válido."  required>
+                                             <div class="help-block with-errors"></div>
+                                        </div> 
+                                         <div class="form-group">
                                             <label>RG</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Apenas números</p>
+                                            <input type="text" class="form-control" name="customer['rg']" data-error="Por favor, informe um RG válido."  data-mask="00.000.000-0" required>
+                                             <div class="help-block with-errors"></div>
+                                         </div>
+                                         <div class="form-group">    
                                             <label>CPF</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Apenas números.</p>
+                                            <input type="text" class="form-control" name="customer['cpf']" data-error="Por favor, informe um CPF válido"  data-mask="000.000.000-00" required>
+                                             <div class="help-block with-errors"></div>
+                                         </div>
+                                         <div class="form-group">    
                                             <label>E-mail</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <input type="email" class="form-control" name="customer['email']" placeholder="Digite um e-mail válido..." data-error="Formato de email incorreto."  required>
+                                            <p class="help-block">Por exemplo: email@email.com</p>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                         <div class="form-group">
                                             <label>Telefone</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Formato: (00) 00000-0000</p>
+                                            <input type="text" class="form-control" name="customer['telefone']" data-error="Por favor, informe um telefone válido."  data-mask="(00) 00000-0000" required>
+                                             <div class="help-block with-errors"></div>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Interesses</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Tarot
+                                                    <input type="checkbox" value="1" name="customer['tarot']">Tarot
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Kabbalah
+                                                   <input type="checkbox" value="1" name="customer['cabala']">Kabbalah
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Astrologia
+                                                    <input type="checkbox" value="1" name="customer['astrologia']">Astrologia
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Umbanda
+                                                    <input type="checkbox" value="1" name="customer['umbanda']">Umbanda
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Hermetismo
+                                                    <input type="checkbox" value="1" name="customer['hermetismo']">Hermetismo
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Reiki
+                                                    <input type="checkbox" value="1" name="customer['reiki']">Reiki
                                                 </label>
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-default">Cadastrar</button>
-                                        <button type="reset" class="btn btn-default">Limpar</button>
+
+
+                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                        <button type="reset" class="btn btn-warning">Limpar</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -210,18 +136,12 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<?php else : ?>
+    <div class="alert alert-danger" role="alert">
+        <p><strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!</p>
+    </div>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+<?php endif; ?>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-
-</body>
-
-</html>
+<?php include(FOOTER_TEMPLATE); ?>

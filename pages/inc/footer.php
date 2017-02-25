@@ -28,8 +28,17 @@
 <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
 <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 
+
 <!-- Custom Theme JavaScript -->
+<script src="../dist/js/jquery.mask.min.js"></script>
 <script src="../dist/js/sb-admin-2.js"></script>
+<script src="../dist/js/main.js"></script>
+<script src="../dist/js/validator.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
@@ -38,6 +47,9 @@
             responsive: true
         });
     });
+
+
+	
 </script>
 
 </body>
