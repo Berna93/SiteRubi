@@ -21,26 +21,30 @@ function close_database($conn) {
  *  Pesquisa um Registro pelo ID em uma Tabela
  */
 function find( $table = null, $id = null ) {
-  
+
+
+
     $database = open_database();
     $found = null;
     try {
       if ($id) {
         $sql = "SELECT * FROM " . $table . " WHERE id = " . $id;
         $result = $database->query($sql);
-        
+
+
         if ($result->num_rows > 0) {
           $found = $result->fetch_assoc();
         }
-        
+
       } else {
-        
+
         $sql = "SELECT * FROM " . $table;
         $result = $database->query($sql);
-        
+
         if ($result->num_rows > 0) {
           $found = $result->fetch_all(MYSQLI_ASSOC);
-        
+
+
         /* Metodo alternativo
         $found = array();
         while ($row = $result->fetch_assoc()) {
@@ -52,7 +56,6 @@ function find( $table = null, $id = null ) {
       $_SESSION['message'] = $e->GetMessage();
       $_SESSION['type'] = 'danger';
   }
-    
     close_database($database);
     return $found;
 }
@@ -65,28 +68,29 @@ function find_all( $table ) {
  *  Pesquisa um Registro pelo ID em uma Tabela
  */
 function find_byelement( $table = null, $columnName = null, $value = null ) {
-  
+
     $database = open_database();
     $found = null;
     try {
       if ($value) {
         $sql = "SELECT * FROM " . $table . " WHERE " . $columnName . "=" . $value;
-       
+
+
         $result = $database->query($sql);
-       
-        
+
+
         if ($result->num_rows > 0) {
           $found = $result->fetch_assoc();
         }
-        
+
       } else {
-        
+
         $sql = "SELECT * FROM " . $table;
         $result = $database->query($sql);
-        
+
         if ($result->num_rows > 0) {
           $found = $result->fetch_all(MYSQLI_ASSOC);
-        
+
         /* Metodo alternativo
         $found = array();
         while ($row = $result->fetch_assoc()) {
@@ -98,7 +102,7 @@ function find_byelement( $table = null, $columnName = null, $value = null ) {
       $_SESSION['message'] = $e->GetMessage();
       $_SESSION['type'] = 'danger';
   }
-    
+
     close_database($database);
     return $found;
 }
@@ -115,7 +119,7 @@ function save($table = null, $data = null) {
   $database = open_database();
   $columns = null;
   $values = null;
-  
+
   foreach ($data as $key => $value) {
     $columns .= trim($key, "'") . ",";
     $values .= "'$value',";
@@ -123,19 +127,21 @@ function save($table = null, $data = null) {
   // remove a ultima virgula
   $columns = rtrim($columns, ',');
   $values = rtrim($values, ',');
-  
+
+
   $sql = "INSERT INTO " . $table . "($columns)" . " VALUES " . "($values);";
 
   try {
     $database->query($sql);
     $_SESSION['message'] = 'Registro cadastrado com sucesso.';
     $_SESSION['type'] = 'success';
-  
-  } catch (Exception $e) { 
-  
+
+  } catch (Exception $e) {
+
     $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
     $_SESSION['type'] = 'danger';
-  } 
+  }
+
   close_database($database);
 }
 
@@ -157,10 +163,12 @@ function update($table = null, $id = 0, $data = null) {
     $database->query($sql);
     $_SESSION['message'] = 'Registro atualizado com sucesso.';
     $_SESSION['type'] = 'success';
-  } catch (Exception $e) { 
+
+  } catch (Exception $e) {
     $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
     $_SESSION['type'] = 'danger';
-  } 
+  }
+
   close_database($database);
 }
 
@@ -169,18 +177,21 @@ function update($table = null, $id = 0, $data = null) {
  */
 function remove( $table = null, $id = null ) {
   $database = open_database();
-	
+
+
   try {
     if ($id) {
 
       $sql = "DELETE FROM " . $table . " WHERE id = " . $id;
 
       $result = $database->query($sql);
-      if ($result = $database->query($sql)) {  
+      if ($result = $database->query($sql)) {
+
         $_SESSION['message'] = "Registro Removido com Sucesso.";
         $_SESSION['type'] = 'success';
       }
     }
+
   } catch (Exception $e) {
 
     $_SESSION['message'] = $e->GetMessage();

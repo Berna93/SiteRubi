@@ -4,7 +4,9 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<?php 
+
+<?php
+
 require_once('cursos/functions.php');
 searchCourseStudents($curso['id']);
 edit();
@@ -34,13 +36,14 @@ edit();
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-6">
+
 								<form role="form" action="edicaoCurso.php?id=<?php echo $curso['id']; ?>" data-toggle="validator" method="post">
 									<div class="form-group">
 										<label>Nome do Curso</label>
 										<input type="text" class="form-control" name="curso['nome']" value="<?php echo $curso['nome']; ?>" data-error="Por favor, informe um nome válido." required>
 										<div class="help-block with-errors"></div>
 									</div>
-									<div class="form-group">	
+									<div class="form-group">
 										<label>Professor/Palestrante</label>
 
 										<input type="text" class="form-control" name="curso['professor']" value="<?php echo $curso['professor']; ?>" data-error="Por favor, informe um nome de professor/palestrante válido."  required>

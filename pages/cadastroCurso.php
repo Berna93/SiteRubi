@@ -4,9 +4,11 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<?php 
+<?php
+
 require_once('cursos/functions.php');
 add();
+
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
@@ -31,10 +33,11 @@ add();
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-6">
+
                                 <form role="form" action="cadastroCurso.php" data-toggle="validator" method="post">
                                     <div class="form-group">
                                         <label>Nome do Curso</label>
-                                        <input type="text" class="form-control" name="curso['nome']" data-error="Por favor, informe um nome de curso válido." required> 
+                                        <input type="text" class="form-control" name="curso['nome']" data-error="Por favor, informe um nome de curso válido." required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="form-group">
@@ -64,7 +67,7 @@ add();
                                         <label>Contrato</label>
                                         <textarea class="form-control" rows="30" name="curso['contrato']"  data-error="É preciso informar um contrato padrão para este curso." required></textarea>
                                         <div class="help-block with-errors"></div>
-                                        
+
                                     </div>
 
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -82,6 +85,7 @@ add();
     </div>
 </div>
 </div>
+
 
 
 <?php else : ?>

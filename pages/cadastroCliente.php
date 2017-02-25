@@ -2,7 +2,7 @@
 include('session.php');
 ?>
 <?php require_once 'config.php'; ?>
-<?php 
+<?php
 	require_once('clientes/functions.php');
 	add();
 ?>
@@ -28,7 +28,7 @@ include('session.php');
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <?php echo $_SESSION['message']; ?>
                         </div>
-                        
+
                     <?php endif; ?>
 
         </div>
@@ -42,6 +42,7 @@ include('session.php');
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
+
                                     <form role="form" action="cadastroCliente.php" data-toggle="validator" method="post">
                                         <div class="form-group">
                                             <label>Nome</label>
@@ -52,18 +53,18 @@ include('session.php');
                                             <label>Endereço</label>
                                             <input type="text" class="form-control" name="customer['endereco']" data-error="Por favor, informe um endereço válido."  required>
                                              <div class="help-block with-errors"></div>
-                                        </div> 
+                                        </div>
                                          <div class="form-group">
                                             <label>RG</label>
                                             <input type="text" class="form-control" name="customer['rg']" data-error="Por favor, informe um RG válido."  data-mask="00.000.000-0" required>
                                              <div class="help-block with-errors"></div>
                                          </div>
-                                         <div class="form-group">    
+                                         <div class="form-group">
                                             <label>CPF</label>
                                             <input type="text" class="form-control" name="customer['cpf']" data-error="Por favor, informe um CPF válido"  data-mask="000.000.000-00" required>
                                              <div class="help-block with-errors"></div>
                                          </div>
-                                         <div class="form-group">    
+                                         <div class="form-group">
                                             <label>E-mail</label>
                                             <input type="email" class="form-control" name="customer['email']" placeholder="Digite um e-mail válido..." data-error="Formato de email incorreto."  required>
                                             <p class="help-block">Por exemplo: email@email.com</p>
@@ -73,6 +74,7 @@ include('session.php');
                                             <label>Telefone</label>
                                             <input type="text" class="form-control" name="customer['telefone']" data-error="Por favor, informe um telefone válido."  data-mask="(00) 00000-0000" required>
                                              <div class="help-block with-errors"></div>
+
                                         </div>
 
                                         <div class="form-group">

@@ -2,9 +2,11 @@
 include('session.php');
 ?>
 <?php require_once 'config.php'; ?>
-<?php 
+
+<?php
 require_once('clientes/functions.php');
 edit();
+
 ?>
 <?php require_once DBAPI; ?>
 
@@ -12,6 +14,7 @@ edit();
 <?php $db = open_database(); ?>
 
 <?php if ($db) : ?>
+
 
     <div id="page-wrapper">
         <div class="row">
@@ -29,7 +32,7 @@ edit();
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <?php echo $_SESSION['message']; ?>
                 </div>
-                
+
             <?php endif; ?>
 
         </div>
@@ -48,14 +51,14 @@ edit();
                                         <label>Nome</label>
                                         <input type="text" class="form-control" name="customer['nome']" value="<?php echo $customer['nome']; ?>" data-error="Por favor, informe um nome válido." required>
                                         <div class="help-block with-errors"></div>
-                                    </div> 
+                                    </div>
                                  <div class="form-group">
                                     <label>Endereço</label>
                                     <input type="text" class="form-control" name="customer['endereco']" value="<?php echo $customer['endereco']; ?>" data-error="Por favor, informe um endereço válido."  required>
                                     <div class="help-block with-errors"></div>
 
                                 </div>
-                                <div class="form-group">  
+                                <div class="form-group">
                                     <label>RG</label>
                                     <input type="text" class="form-control" name="customer['rg']" value="<?php echo $customer['rg']; ?>" data-error="Por favor, informe um RG válido."  data-mask="00.000.000-0" required>
                                     <div class="help-block with-errors"></div>
@@ -64,7 +67,7 @@ edit();
                                 <div class="form-group">
                                     <label>CPF</label>
                                     <input type="text" class="form-control" name="customer['cpf']" value="<?php echo $customer['cpf']; ?>" data-error="Por favor, informe um CPF válido"  data-mask="000.000.000-00" required>
-                                    <div class="help-block with-errors"></div> 
+                                    <div class="help-block with-errors"></div>
                                     <p class="help-block">Apenas números.</p>
                                 </div>
                                 <div class="form-group">

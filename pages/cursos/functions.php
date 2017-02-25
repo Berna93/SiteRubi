@@ -6,8 +6,12 @@ require_once(DBAPI);
 $cursos = null;
 $curso = null;
 $cursosParticipantes = null;
+
 $cliente = null;
 $reload = null;
+
+
+
 
 /**
  *  Listagem de cursos
@@ -29,16 +33,18 @@ function searchCourseStudents($idCurso = null) {
 function add() {
   if (!empty($_POST['curso'])) {
 
-    
-    $today = 
+
+
+    $today =
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
     $curso = $_POST['curso'];
     $curso['modified'] = $curso['dataCriacao'] = $today->format("Y-m-d H:i:s");
-    
+
     if (!empty($_POST['data'])) {
        $data = $_POST['data'];
-       $curso['data'] = date('Y-m-d', strtotime($data));       
+       $curso['data'] = date('Y-m-d', strtotime($data));
     }
+
 
     save('cursos', $curso);
     header('location: cadastroCurso.php');
@@ -55,13 +61,15 @@ function edit() {
     if (isset($_POST['curso'])) {
       $curso = $_POST['curso'];
       $curso['modified'] = $now->format("Y-m-d H:i:s");
-
       update('cursos', $id, $curso);
       header('location: edicaoCurso.php?id=' . $id);
     } else {
       global $curso;
       $curso = find('cursos', $id);
-    } 
+
+    }
+
+
   } else {
      header('location: edicaoCurso.php?id=' . $id);
   }
@@ -72,7 +80,10 @@ function edit() {
  */
 function editParticipant() {
   $now = date_create('now', new DateTimeZone('America/Sao_Paulo'));
+
   $qtdePreenchidas = 0;
+
+
 
 
   if (isset($_GET['id'])) {
@@ -84,18 +95,22 @@ function editParticipant() {
        if (!empty($_POST['participante'])) {
 
             $curso = $_POST['curso'];
-           
+
             $curso['modified'] = $now->format("Y-m-d H:i:s");
 
 
             update('cursos', $id, $curso);
+
 
             if($_POST['participante'])
 
               $data = $_POST['participante'];
               $columns = null;
             $values = null;
- 
+
+
+
+
             foreach ($data as $key => $value) {
               $columns .= trim($key, "'") . ",";
               $values .= "'$value',";
@@ -103,10 +118,12 @@ function editParticipant() {
 
             $columns = rtrim($columns, ',');
             $values = rtrim($values, ',');
-            
-            $today = 
+
+
+            $today =
               date_create('now', new DateTimeZone('America/Sao_Paulo'));
-            
+
+
             $participante = find_all_byelement('clientes', 'nome', $values);
             $participante['modified'] = $participante['dataCriacao'] = $today->format("Y-m-d H:i:s");
 
@@ -119,15 +136,18 @@ function editParticipant() {
 
             save('cursos_participantes', $participanteCurso);
            header('location: cursoParticipantes.php?id=' . $id);
-           
-      
+
+
       }
+
 
       //header('location: edicaoCurso.php?id=' . $id);
     } else {
       global $curso;
       $curso = find('cursos', $id);
-    } 
+
+    }
+
   } else {
      header('location: edicaoCurso.php?id=' . $id);
   }
@@ -142,6 +162,9 @@ function delete($id = null) {
   global $curso;
   $curso = remove('cursos', $id);
   header('location: edicaoCurso.php?id=' . $id);
+
+
+
 }
 
 /**
@@ -150,14 +173,17 @@ function delete($id = null) {
 function deleteParticipant($id = null, $idCurso = null) {
   global $participante;
 
-  $participante = remove('cursos_participantes', $id); 
+  $participante = remove('cursos_participantes', $id);
+
 
   header('location: cursoParticipantes.php?id=' . $idCurso);
 }
+
 
 
 function clearMessages() {
    $_SESSION['message'] = "";
    $_SESSION['type'] = "";
 }
+
 

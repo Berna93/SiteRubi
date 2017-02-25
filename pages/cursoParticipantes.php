@@ -4,10 +4,12 @@ include('session.php');
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
-<?php 
+
+<?php
 require_once('cursos/functions.php');
 searchCourseStudents($curso['id']);
 editParticipant();
+
 
 
 ?>
@@ -25,6 +27,7 @@ editParticipant();
 			<!-- /.col-lg-12 -->
 		</div>
 
+
 		<div class="col-lg-12" align="right">
                     		<a href="download.php" class="btn btn-sm btn-primary"><i class="fa fa-download"></i> Download</a>
                     </div>
@@ -36,12 +39,14 @@ editParticipant();
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<?php echo $_SESSION['message']; ?>
 						</div>
-						
+
+
 					<?php endif; ?>
 
         </div>
-                    
-                    
+
+
+
 		<!-- /.row -->
 		<div class="row">
 			<div class="col-lg-12">
@@ -52,6 +57,7 @@ editParticipant();
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-6">
+
 								<form role="form" action="cursoParticipantes.php?id=<?php echo $curso['id']; ?>" method="post">
 									<div class="form-group">
 										<label>Nome do Curso</label>
@@ -65,23 +71,24 @@ editParticipant();
 										<input type="text" class="form-control" readonly name="curso['qtdeVagas']" value="<?php echo $curso['qtdeVagas']; ?>">
 										<p class="help-block">Apenas números</p>
 
+
 											<label>Adicionar Participante</label>
 											<div class="form-group input-group">
 
 												<input type="text" class="form-control" id="skills" name="participante['nomeCliente']"/>
 												<span class="input-group-btn">
-												
-									
+
+
 														<button class="btn btn-default" type="submit" name="btnAdiciona"><i class="fa fa-check"></i>
 														</button>
-													
+
 												</span>
 											</div>
 
 									</div>
 								</form>
 
-								
+
 							</div>
 							<div class="col-lg-6">
 							<div>
@@ -95,12 +102,9 @@ editParticipant();
 												</div>
 											</div>
 										</div>
-							</div>
-							<!-- /.col-lg-6 (nested) -->
-						<div class="row">
-							<div class="col-lg-12" align="center">
-									<div class="panel panel-green">
-										
+
+
+
 
 										<div class="panel-heading">
 											Participantes
@@ -108,9 +112,17 @@ editParticipant();
 
 
 
+
+
+
+
+
 										<!-- /.panel-heading -->
 										<div class="panel-body">
-											
+
+
+
+
 											<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 												<thead>
 													<tr>
@@ -127,11 +139,18 @@ editParticipant();
 															<tr>
 																<td><?php echo $participante['id']; ?></td>
 																<td><?php echo $participante['nomeCliente']; ?></td>
+
+
 																<td class="center">
 																	<a href="#" class="btn btn-success btn-circle" data-toggle="modal" data-target="#delete-modal-participante" data-customer="<?php echo $participante['id']; ?>" data-curso="<?php echo $curso['id']; ?>"><i class="fa fa-dollar">
 																</td>
 																<td class="center">
 																	<a href="#" class="btn btn-warning btn-circle <?php if ($_SESSION['usertype']!='admin') echo "disabled"; ?>" data-toggle="modal" data-target="#delete-modal-participante" data-customer="<?php echo $participante['id']; ?>" data-curso="<?php echo $curso['id']; ?>"><i class="fa fa-times">
+
+																<td><?php echo $participante['situacaoPagamento']; ?></td>
+																<td class="center">
+																	<a href="edicaoCliente.php?id=<?php echo $customer['id']; ?>" class="btn btn-warning btn-circle"><i class="fa fa-times">
+
 																</td>
 																<td class="center">
 																	<a href="edicaoCliente.php?id=<?php echo $customer['id']; ?>" class="btn btn-info btn-circle"><i class="fa fa-download">
@@ -154,7 +173,18 @@ editParticipant();
 						</div>
 
 
-					
+
+
+
+									<!-- /.panel-body -->
+									<button type="submit" class="btn btn-primary">Atualizar</button>
+									<button type="reset" class="btn btn-warning">Limpar</button>
+									<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-curso" data-customer="<?php echo $curso['id']; ?>">
+										<i class="fa fa-trash"></i> Excluir
+									</a>
+					</form>
+
+
 
 				</div>
 				<!-- /.col-lg-6 (nested) -->
@@ -173,8 +203,10 @@ editParticipant();
 
 <?php endif; ?>
 <?php include('cursos/modal.php'); ?>
-<?php include('cursos/modalParticipante.php'); ?>
 
+
+
+<?php include('cursos/modalParticipante.php'); ?>
 
 
 <?php include(FOOTER_TEMPLATE); ?>
